@@ -4,10 +4,10 @@ describe "As a user, when I visit '/', fill the search bar with '80202', and cli
   it "then my current path should be '/search', and I should see 10 stores (with their long name, city, distance, phone number, and store type) as well as a message that says '17 Total Stores'" do
     # When I visit "/"
     visit '/'
-save_and_open_page
+
     # And I fill in a search box with "80202" and click "search"
-    fill_in "searchbox", with: "80202"
-    click "search"
+    fill_in "q", with: "80202"
+    click_on "search"
 
     # Then my current path should be "/search" (ignoring params)
     expect(current_path).to eq("/search")
