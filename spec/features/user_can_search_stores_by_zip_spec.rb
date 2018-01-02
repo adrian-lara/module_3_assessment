@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "As a user, when I visit '/', fill the search bar with '80202', and click 'search'" do
   it "then my current path should be '/search', and I should see 10 stores (with their long name, city, distance, phone number, and store type) as well as a message that says '17 Total Stores'" do
-    VCR.use_cassette("stores_search_80202") do
+    VCR.use_cassette("stores_search_80202_midrefactor") do
       visit '/'
 
       fill_in "q", with: "80202"
