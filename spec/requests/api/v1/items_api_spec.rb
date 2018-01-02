@@ -55,18 +55,16 @@ describe "Items API" do
       image_url: "http://via.placeholder.com/300"
     }
 
-    post "/api/v1/items"
+    post "/api/v1/items", params: params
 
     expect(response.code).to eq("201")
     expect(Item.count).to eq(4)
 
     item = JSON.parse(response.body)
 
-    expect(item).to have_key("id")
-    expect(item).to have_key("name")
-    expect(item).to have_key("description")
-    expect(item).to have_key("image_url")
-    expect(item).not_to have_key("created_at")
-    expect(item).not_to have_key("updated_at")
+    expect(item["id"]).to eq(Item.last.id)
+    expect(item["name"]).to eq("Best Item")
+    expect(item["description"]).to eq("This is the best item ever")
+    expect(item["image_url"]).to eq("http://via.placeholder.com/300")
   end
 end
