@@ -24,6 +24,7 @@ describe "As a user, when I visit '/', fill the search bar with '80202', and cli
       expect(page).to have_css(".distance", count: 10)
       expect(page).to have_css(".phone", count: 10)
       expect(page).to have_css(".store_type", count: 10)
+      save_and_open_page
     end
   end
 end
