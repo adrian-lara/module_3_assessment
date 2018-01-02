@@ -4,7 +4,7 @@ describe StoreSearchResult do
   describe "Instance Methods" do
 
     before(:each) do
-      @result = StoreSearchResult.new(1, [Store.new({})])
+      @result = StoreSearchResult.new({total: 1, stores: [{}]})
     end
 
     describe "#store_count" do
