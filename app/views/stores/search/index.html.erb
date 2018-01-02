@@ -1,6 +1,6 @@
-<h3><%= @stores.count %> Total Stores</h3>
+<h3><%= @results.store_count %> Total Stores</h3>
 
-<% @stores.each do |store| %>
+<% @results.stores.each do |store| %>
   <ul class="store_info">
     <p class="long_name"><%= store.long_name %></p>
     <li class="city">City: <%= store.city %></li>
