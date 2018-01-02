@@ -22,6 +22,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
+  gem 'launchy'
 end
 
 group :test do
