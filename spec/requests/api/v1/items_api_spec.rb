@@ -10,7 +10,7 @@ describe "Items API" do
   it "can return all items" do
     get '/api/v1/items'
 
-    expect(response).to be_success
+    expect(response.code).to eq("200")
 
     items = JSON.parse(response.body)
 
@@ -28,7 +28,7 @@ describe "Items API" do
   it "can return a single item" do
     get "/api/v1/items/#{Item.first.id}"
 
-    expect(response).to be_success
+    expect(response.code).to eq("200")
 
     item = JSON.parse(response.body)
 
@@ -39,7 +39,15 @@ describe "Items API" do
     expect(item).not_to have_key("created_at")
     expect(item).not_to have_key("updated_at")
   end
+
+  it "can delete a single item" do
+    delete "/api/v1/items/#{Item.first.id}"
+
+    expect(response.code).to eq("204")
+
+    expect(Item.count).to eq(2)
+  end
 end
 
-# When I send a GET request to `/api/v1/items/1`
-# I receive a 200 JSON response containing the id, name, description, and image_url but not the created_at or updated_at
+# When I send a DELETE request to `/api/v1/items/1`
+# I receive a 204 JSON response if the record is successfully deleted
