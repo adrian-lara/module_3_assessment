@@ -3,6 +3,7 @@ require "rails_helper"
 describe "Items API" do
 
   before(:all) do
+    DatabaseCleaner.clean
     create_list(:item, 3)
   end
 
